@@ -1,5 +1,6 @@
-#include <assert.h>
-#include <iostream>
+#include "checker.hpp"
+
+
 using namespace std;
 
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
