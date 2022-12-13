@@ -4,10 +4,24 @@
 #include <assert.h>
 #include <iostream>
 
-namespace TelCoColorCoder
+namespace BMS
 {
-    bool batteryIsOk(float temperature, float soc, float chargeRate);
+    class BMS
+    {
+    public:
+        bool temperatureIsOk(float temperature);
 
+        bool socIsOk(float soc);
+
+        bool checkRange(float chargeRate);
+
+        bool batteryIsOk(float temperature, float soc, float chargeRate);
+
+    private:
+        bool tempOk;
+        bool socOk;
+        bool inRange;
+    };
 }
 
 #endif
