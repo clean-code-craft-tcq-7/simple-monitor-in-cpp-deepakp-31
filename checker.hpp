@@ -6,7 +6,8 @@
 
 namespace TelCoColorCoder
 {
-  
+    bool batteryIsOk(float temperature, float soc, float chargeRate);
+
 }
 
 #endif
