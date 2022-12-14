@@ -1,10 +1,10 @@
 #include "BMS_checkfn.hpp"
 
-checkFunction(float variable, float min, float max, string outputString)
+bool checkFunction(float variable, float min, float max, std::string outputString)
 {
   if (variable < min || variable > max)
   {
-    cout << outputString << "\n";
+    std::cout << outputString << "\n";
     return false;
   }
   else
@@ -13,11 +13,11 @@ checkFunction(float variable, float min, float max, string outputString)
   }
 }
 
-checkFunction(float variable, float limit, string outputString)
+bool checkFunction(float variable, float limit, std::string outputString)
 {
   if (variable > limit)
   {
-    cout << outputString << "\n";
+    std::cout << outputString << "\n";
     return false;
   }
   else
