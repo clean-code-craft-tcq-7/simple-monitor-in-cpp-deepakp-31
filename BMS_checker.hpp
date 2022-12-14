@@ -3,8 +3,7 @@
 
 #include <assert.h>
 #include <iostream>
-
-using namespace std;
+#include <string>
 
 namespace BMS
 {
@@ -18,10 +17,6 @@ namespace BMS
         bool checkRange(float chargeRate);
 
         bool batteryIsOk(float temperature, float soc, float chargeRate);
-
-        bool checkFunction(float variable, float min, float max, string outputString);
-
-        bool checkFunction(float variable, float limit, string outputString);
 
     private:
         bool tempOk;
