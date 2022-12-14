@@ -1,6 +1,6 @@
 #include "BMS_checkfn.hpp"
 
-std::string printOutput(std::string outputString)
+void printOutput(std::string outputString)
 {
   std::cout << outputString << "\n";
 }
