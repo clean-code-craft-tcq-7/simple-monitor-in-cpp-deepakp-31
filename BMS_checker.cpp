@@ -30,17 +30,17 @@ bool BMS::BMS::checkFunction(float variable, float limit, string outputString)
 bool BMS::BMS::temperatureIsOk(float temperature)
 {
   string outputString = "Temperature out of range!";
-  BMS::BMS::checkFunction(temperature, temperatureMin, temperatureMax, outputString);
+//   BMS::BMS::checkFunction(temperature, temperatureMin, temperatureMax, outputString);
 
-  // if (temperature < temperatureMin || temperature > temperatureMax)
-  // {
-  //   cout << "Temperature out of range!\n";
-  //   return false;
-  // }
-  // else
-  // {
-  //   return true;
-  // }
+  if (temperature < temperatureMin || temperature > temperatureMax)
+  {
+    cout << "Temperature out of range!\n";
+    return false;
+  }
+  else
+  {
+    return true;
+  }
 }
 
 bool BMS::BMS::socIsOk(float soc)
