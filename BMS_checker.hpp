@@ -19,6 +19,10 @@ namespace BMS
 
         bool batteryIsOk(float temperature, float soc, float chargeRate);
 
+        bool checkFunction(float variable, float min, float max, string outputString);
+
+        bool checkFunction(float variable, float limit, string outputString);
+
     private:
         bool tempOk;
         bool socOk;
