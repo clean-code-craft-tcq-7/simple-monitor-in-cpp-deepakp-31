@@ -1,43 +1,77 @@
 #include "BMS_checker.hpp"
 #include "BMS_parameters.hpp"
 
-bool BMS::BMS::temperatureIsOk(float temperature)
+bool BMS::BMS::checkFunction(float variable, float min, float max, string outputString)
 {
-  if (temperature < temperatureMin || temperature > temperatureMax)
+  if (variable < min || variable > min)
   {
-    cout << "Temperature out of range!\n";
+    cout << outputString << "\n";
     return false;
   }
   else
   {
     return true;
   }
+}
+
+bool BMS::BMS::checkFunction(float variable, float limit, string outputString)
+{
+  if (variable > limit)
+  {
+    cout << outputString << "\n";
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+
+bool BMS::BMS::temperatureIsOk(float temperature)
+{
+  string outputString = "Temperature out of range!";
+  BMS::BMS::checkFunction(temperature, temperatureMin, temperatureMax, outputString);
+
+  // if (temperature < temperatureMin || temperature > temperatureMax)
+  // {
+  //   cout << "Temperature out of range!\n";
+  //   return false;
+  // }
+  // else
+  // {
+  //   return true;
+  // }
 }
 
 bool BMS::BMS::socIsOk(float soc)
 {
-  if (soc < socMin || soc > socMax)
-  {
-    cout << "State of Charge out of range!\n";
-    return false;
-  }
-  else
-  {
-    return true;
-  }
+  string outputString = "State of Charge out of range!";
+  BMS::BMS::checkFunction(soc, socMin, socMax, outputString);
+  // if (soc < socMin || soc > socMax)
+  // {
+  //   cout << "State of Charge out of range!\n";
+  //   return false;
+  // }
+  // else
+  // {
+  //   return true;
+  // }
 }
 
 bool BMS::BMS::checkRange(float chargeRate)
 {
-  if (chargeRate > chargeRateLimit)
-  {
-    cout << "Charge Rate out of range!\n";
-    return false;
-  }
-  else
-  {
-    return true;
-  }
+  string outputString = "Charge Rate out of range!";
+  BMS::BMS::checkFunction(chargeRate, chargeRateLimit, outputString);
+
+  // if (chargeRate > chargeRateLimit)
+  // {
+  //   cout << "Charge Rate out of range!\n";
+  //   return false;
+  // }
+  // else
+  // {
+  //   return true;
+  // }
 }
 
 bool BMS::BMS::batteryIsOk(float temperature, float soc, float chargeRate)
