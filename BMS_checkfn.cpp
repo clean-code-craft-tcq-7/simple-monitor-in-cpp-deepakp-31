@@ -9,7 +9,7 @@ bool checkFunction(float variable, float min, float max, std::string outputStrin
 {
   if (variable < min || variable > max)
   {
-    printOutput(std::string outputString);
+    printOutput(outputString);
     return false;
   }
   else
@@ -22,7 +22,7 @@ bool checkFunction(float variable, float limit, std::string outputString)
 {
   if (variable > limit)
   {
-    printOutput(std::string outputString);
+    printOutput(outputString);
     return false;
   }
   else
