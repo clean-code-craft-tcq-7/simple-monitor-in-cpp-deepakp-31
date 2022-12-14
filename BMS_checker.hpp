@@ -4,6 +4,8 @@
 #include <assert.h>
 #include <iostream>
 
+using namespace std;
+
 namespace BMS
 {
     class BMS
