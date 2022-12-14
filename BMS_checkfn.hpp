@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 
+std::string printOutput(std::string outputString);
+
 bool checkFunction(float variable, float min, float max, std::string outputString);
 
 bool checkFunction(float variable, float limit, std::string outputString);
