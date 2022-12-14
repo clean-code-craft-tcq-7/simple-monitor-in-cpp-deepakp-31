@@ -30,7 +30,7 @@ bool BMS::BMS::checkFunction(float variable, float limit, string outputString)
 bool BMS::BMS::temperatureIsOk(float temperature)
 {
   string outputString = "Temperature out of range!";
-  BMS::BMS::checkFunction(temperature, temperatureMin, temperatureMax, outputString);
+  return BMS::BMS::checkFunction(temperature, temperatureMin, temperatureMax, outputString);
 
   // if (temperature < temperatureMin || temperature > temperatureMax)
   // {
@@ -46,7 +46,7 @@ bool BMS::BMS::temperatureIsOk(float temperature)
 bool BMS::BMS::socIsOk(float soc)
 {
   string outputString = "State of Charge out of range!";
-  BMS::BMS::checkFunction(soc, socMin, socMax, outputString);
+  return BMS::BMS::checkFunction(soc, socMin, socMax, outputString);
   // if (soc < socMin || soc > socMax)
   // {
   //   cout << "State of Charge out of range!\n";
@@ -61,7 +61,7 @@ bool BMS::BMS::socIsOk(float soc)
 bool BMS::BMS::checkRange(float chargeRate)
 {
   string outputString = "Charge Rate out of range!";
-  BMS::BMS::checkFunction(chargeRate, chargeRateLimit, outputString);
+  return BMS::BMS::checkFunction(chargeRate, chargeRateLimit, outputString);
 
   // if (chargeRate > chargeRateLimit)
   // {
