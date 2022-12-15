@@ -14,7 +14,7 @@ namespace BMS
 
         bool socIsOk(float soc);
 
-        bool checkRange(float chargeRate);
+        bool checkChargeRate(float chargeRate);
 
         bool batteryIsOk(float temperature, float soc, float chargeRate);
 
