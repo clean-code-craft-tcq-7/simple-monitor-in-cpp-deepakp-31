@@ -1,8 +1,4 @@
-#include "BMS_checker.hpp"
-
-int main()
-{
-  BMS::BMS bms;
+BMS::BMS bms;
   assert(bms.batteryIsOk(25, 70, 0.7) == true);
   assert(bms.batteryIsOk(50, 85, 0) == false);
 
@@ -16,13 +12,19 @@ int main()
   assert(bms.batteryIsOk(0, 79.9, 0.8) == true);
 
   assert(bms.batteryIsOk(0, 20, 0.79) == true);
-  
+
   // Temperature
   assert(bms.temperatureIsOk(-0.1) == false);
   assert(bms.temperatureIsOk(0) == true);
   assert(bms.temperatureIsOk(45) == true);
   assert(bms.temperatureIsOk(45.1) == false);
 
-  assert(bms.checkChargeRate(0.8) == true);
-}
+  // State of Charge
+  assert(bms.socIsOk(19.9) == false);
+  assert(bms.socIsOk(20) == true);
+  assert(bms.socIsOk(80) == true);
+  assert(bms.socIsOk(80.1) == false);
 
+  // Charge rate
+  assert(bms.checkChargeRate(0.79) == false);
+  assert(bms.checkChargeRate(0.8) == true);
