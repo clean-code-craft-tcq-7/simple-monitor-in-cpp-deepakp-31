@@ -16,5 +16,13 @@ int main()
   assert(bms.batteryIsOk(0, 79.9, 0.8) == true);
 
   assert(bms.batteryIsOk(0, 20, 0.79) == true);
+  
+  // Temperature
+  assert(bms.temperatureIsOk(-0.1) == false);
+  assert(bms.temperatureIsOk(0) == true);
+  assert(bms.temperatureIsOk(45) == true);
+  assert(bms.temperatureIsOk(45.1) == false);
+
+  assert(bms.checkChargeRate(0.8) == true);
 }
 
