@@ -14,10 +14,10 @@ bool BMS::BMS::socIsOk(float soc)
   return checkFunction(soc, socMin, socMax, outputString);
 }
 
-bool BMS::BMS::checkRange(float chargeRate)
+bool BMS::BMS::checkChargeRate(float chargeRate)
 {
   std::string outputString = "Charge Rate out of range!";
-  return checkChargeRate(chargeRate, chargeRateLimit, outputString);
+  return checkFunction(chargeRate, chargeRateLimit, outputString);
 }
 
 bool BMS::BMS::batteryIsOk(float temperature, float soc, float chargeRate)
