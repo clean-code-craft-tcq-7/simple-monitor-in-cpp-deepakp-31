@@ -30,7 +30,7 @@ int main()
   assert(bms.socIsOk(80.1) == false);
 
   // Charge rate
-  assert(bms.checkChargeRate(0.79) == false);
+  assert(bms.checkChargeRate(0.81) == false);
   assert(bms.checkChargeRate(0.8) == true);
 }
 
