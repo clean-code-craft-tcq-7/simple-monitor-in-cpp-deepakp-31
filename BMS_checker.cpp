@@ -30,7 +30,7 @@ bool BMS::BMS::checkChargeRate(float chargeRate)
 }
 
 // WITH WARNING TOLERANCE
-bool BMS::BMS::temperatureIsOk(float temperature)
+bool BMS::BMS::temperatureIsOkWithTolerance(float temperature)
 {
   std::string outputString = "TEMPERATURE";
   return isBatteryParameterWithinLimitsWithWarning(
@@ -38,7 +38,7 @@ bool BMS::BMS::temperatureIsOk(float temperature)
       temperatureTolerance, temperatureMin, temperatureMax, outputString);
 }
 
-bool BMS::BMS::socIsOk(float soc)
+bool BMS::BMS::socIsOkWithTolerance(float soc)
 {
   std::string outputString = "SOC";
   return isBatteryParameterWithinLimitsWithWarning(
@@ -46,7 +46,7 @@ bool BMS::BMS::socIsOk(float soc)
       socTolerance, socMin, socMax, outputString);
 }
 
-bool BMS::BMS::checkChargeRate(float chargeRate)
+bool BMS::BMS::checkChargeRateWithTolerance(float chargeRate)
 {
   std::string outputString = "CHARGERATE";
   return isBatteryParameterinRangeWithWarning(
