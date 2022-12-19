@@ -2,42 +2,6 @@
 #include "BMS_parameters.hpp"
 #include "BMS_checkfn.hpp"
 
-// bool BMS::BMS::temperatureIsOk(float temperature)
-// {
-//   std::string outputString = "Temperature out of range!";
-//   return isBatteryParameterWithinLimits(temperature, temperatureMin, temperatureMax, outputString);
-// }
-
-// bool BMS::BMS::socIsOk(float soc)
-// {
-//   std::string outputString = "State of Charge out of range!";
-//   return isBatteryParameterWithinLimits(soc, socMin, socMax, outputString);
-// }
-
-// bool BMS::BMS::checkChargeRate(float chargeRate)
-// {
-//   std::string outputString = "Charge Rate out of range!";
-//   return isBatteryParameterinRange(chargeRate, chargeRateLimit, outputString);
-// }
-
-// bool BMS::BMS::temperatureIsOk(float temperature, float warningPercent)
-// {
-//   std::string outputString = "Temperature out of range!";
-//   return isBatteryParameterWithinLimits(temperature, temperatureMin, temperatureMax, outputString);
-// }
-
-// bool BMS::BMS::socIsOk(float soc, float warningPercent)
-// {
-//   std::string outputString = "State of Charge out of range!";
-//   return isBatteryParameterWithinLimits(soc, socMin, socMax, outputString);
-// }
-
-// bool BMS::BMS::checkChargeRate(float chargeRate, float warningPercent)
-// {
-//   std::string outputString = "Charge Rate out of range!";
-//   return isBatteryParameterinRange(chargeRate, chargeRateLimit, outputString);
-// }
-
 float BMS::BMS::convertBateryParam(float paramatervalue, float scaleFactor, float shiftFactor)
 {
   return ((scaleFactor * paramatervalue) + shiftFactor);
@@ -66,7 +30,7 @@ bool BMS::BMS::checkChargeRate(float chargeRate)
 }
 
 // WITH WARNING TOLERANCE
-bool BMS::BMS::temperatureIsOk(float temperature, float warningPercent)
+bool BMS::BMS::temperatureIsOk(float temperature)
 {
   std::string outputString = "TEMPERATURE";
   return isBatteryParameterWithinLimitsWithWarning(
@@ -93,9 +57,9 @@ bool BMS::BMS::checkChargeRate(float chargeRate)
 bool BMS::BMS::batteryIsOk(float temperature, float soc, float chargeRate)
 {
 
-  tempOk = BMS::BMS::temperatureIsOk(temperature, temperatureTolerance);
-  socOk = BMS::BMS::socIsOk(soc, socTolerance);
-  inRange = BMS::BMS::checkChargeRate(chargeRate, chargeRateTolerance);
+  tempOk = BMS::BMS::temperatureIsOk(temperature);
+  socOk = BMS::BMS::socIsOk(soc);
+  inRange = BMS::BMS::checkChargeRate(chargeRate);
 
   return tempOk && socOk && inRange;
 }
