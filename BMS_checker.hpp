@@ -19,11 +19,11 @@ namespace BMS
 
         bool checkChargeRate(float chargeRate);
 
-        bool temperatureIsOk(float temperature);
+        bool temperatureIsOkWithTolerance(float temperature);
 
-        bool socIsOk(float soc);
+        bool socIsOkWithTolerance(float soc);
 
-        bool checkChargeRate(float chargeRate);
+        bool checkChargeRateWithTolerance(float chargeRate);
 
         bool batteryIsOk(float temperature, float soc, float chargeRate);
 
