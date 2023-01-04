@@ -57,3 +57,16 @@ Shorten the Semantic distance
 - Functional to express relation between input and output
 - Object oriented to encapsulate state with actions
 - Apect oriented to capture repeating aspects
+
+## Tasks Done
+
+1 Added Warning for the Battery Paramaters. 
+    1 bool isBatteryParameterWithinLimitsWithWarning(float variable, float min, float max, float warningPercent, std::string outputString);
+    2 bool isBatteryParameterinRangeWithWarning(float variable, float limit, float warningPercent, std::string outputString);
+
+  1.1 Added separate functions to reduce cyclomatic complexity
+    - bool highEarlyWarningBatteryParameter(float variable, float min, float max, float warningPercent, std::string outputString);
+    - bool lowEarlyWarningBatteryParameter(float variable, float min, float max, float warningPercent, std::string outputString);
+
+2 Added Conversion Function that does a scaling and shifting based on the defined parameters
+  - float convertBatteryParam(float paramatervalue, float scaleFactor, float shiftFactor);
