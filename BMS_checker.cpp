@@ -2,7 +2,43 @@
 #include "BMS_parameters.hpp"
 #include "BMS_checkfn.hpp"
 
-float BMS::BMS::convertBateryParam(float paramatervalue, float scaleFactor, float shiftFactor)
+// bool BMS::BMS::temperatureIsOk(float temperature)
+// {
+//   std::string outputString = "Temperature out of range!";
+//   return isBatteryParameterWithinLimits(temperature, temperatureMin, temperatureMax, outputString);
+// }
+
+// bool BMS::BMS::socIsOk(float soc)
+// {
+//   std::string outputString = "State of Charge out of range!";
+//   return isBatteryParameterWithinLimits(soc, socMin, socMax, outputString);
+// }
+
+// bool BMS::BMS::checkChargeRate(float chargeRate)
+// {
+//   std::string outputString = "Charge Rate out of range!";
+//   return isBatteryParameterinRange(chargeRate, chargeRateLimit, outputString);
+// }
+
+// bool BMS::BMS::temperatureIsOk(float temperature, float warningPercent)
+// {
+//   std::string outputString = "Temperature out of range!";
+//   return isBatteryParameterWithinLimits(temperature, temperatureMin, temperatureMax, outputString);
+// }
+
+// bool BMS::BMS::socIsOk(float soc, float warningPercent)
+// {
+//   std::string outputString = "State of Charge out of range!";
+//   return isBatteryParameterWithinLimits(soc, socMin, socMax, outputString);
+// }
+
+// bool BMS::BMS::checkChargeRate(float chargeRate, float warningPercent)
+// {
+//   std::string outputString = "Charge Rate out of range!";
+//   return isBatteryParameterinRange(chargeRate, chargeRateLimit, outputString);
+// }
+
+float BMS::BMS::convertBatteryParam(float paramatervalue, float scaleFactor, float shiftFactor)
 {
   return ((scaleFactor * paramatervalue) + shiftFactor);
 }
@@ -11,21 +47,21 @@ float BMS::BMS::convertBateryParam(float paramatervalue, float scaleFactor, floa
 bool BMS::BMS::temperatureIsOk(float temperature)
 {
   std::string outputString = "TEMPERATURE";
-  return isBatteryParameterWithinLimits(convertBateryParam(temperature, temperatureScaleFactor, temperatureShiftFactor),
+  return isBatteryParameterWithinLimits(convertBatteryParam(temperature, temperatureScaleFactor, temperatureShiftFactor),
                                         temperatureMin, temperatureMax, outputString);
 }
 
 bool BMS::BMS::socIsOk(float soc)
 {
   std::string outputString = "SOC";
-  return isBatteryParameterWithinLimits(convertBateryParam(soc, socScaleFactor, socShiftFactor),
+  return isBatteryParameterWithinLimits(convertBatteryParam(soc, socScaleFactor, socShiftFactor),
                                         socMin, socMax, outputString);
 }
 
 bool BMS::BMS::checkChargeRate(float chargeRate)
 {
   std::string outputString = "CHARGERATE";
-  return isBatteryParameterinRange(convertBateryParam(chargeRate, chargeRateScaleFactor, chargeRateShiftFactor),
+  return isBatteryParameterinRange(convertBatteryParam(chargeRate, chargeRateScaleFactor, chargeRateShiftFactor),
                                    chargeRateLimit, outputString);
 }
 
@@ -34,7 +70,7 @@ bool BMS::BMS::temperatureIsOkWithTolerance(float temperature)
 {
   std::string outputString = "TEMPERATURE";
   return isBatteryParameterWithinLimitsWithWarning(
-      convertBateryParam(temperature, temperatureScaleFactor, temperatureShiftFactor),
+      convertBatteryParam(temperature, temperatureScaleFactor, temperatureShiftFactor),
       temperatureTolerance, temperatureMin, temperatureMax, outputString);
 }
 
@@ -42,7 +78,7 @@ bool BMS::BMS::socIsOkWithTolerance(float soc)
 {
   std::string outputString = "SOC";
   return isBatteryParameterWithinLimitsWithWarning(
-      convertBateryParam(soc, socScaleFactor, socShiftFactor),
+      convertBatteryParam(soc, socScaleFactor, socShiftFactor),
       socTolerance, socMin, socMax, outputString);
 }
 
@@ -50,7 +86,7 @@ bool BMS::BMS::checkChargeRateWithTolerance(float chargeRate)
 {
   std::string outputString = "CHARGERATE";
   return isBatteryParameterinRangeWithWarning(
-      convertBateryParam(chargeRate, chargeRateScaleFactor, chargeRateShiftFactor),
+      convertBatteryParam(chargeRate, chargeRateScaleFactor, chargeRateShiftFactor),
       chargeRateTolerance, chargeRateLimit, outputString);
 }
 
