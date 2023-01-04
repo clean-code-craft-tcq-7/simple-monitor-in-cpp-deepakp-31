@@ -11,7 +11,7 @@ namespace BMS
     {
     public:
         //Assuming the parameter is just transformation achieved by simple multiplication and shifting
-        float convertBateryParam(float paramatervalue, float scaleFactor, float shiftFactor);
+        float convertBatteryParam(float paramatervalue, float scaleFactor, float shiftFactor);
 
         bool temperatureIsOk(float temperature);
 
