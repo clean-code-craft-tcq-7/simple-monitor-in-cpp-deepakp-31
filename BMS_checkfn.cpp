@@ -47,13 +47,10 @@ bool isBatteryParameterWithinLimitsWithWarning(float variable, float min, float 
     printOutput(outputString);
     return true;
   }
-  else
-  {
-    // LOW_"Battery_PARAM"_BREACH
-    outputString = "LOW_" + outputString + "_BREACH";
-    printOutput(outputString);
-    return false;
-  }
+  // LOW_"Battery_PARAM"_BREACH
+  outputString = "LOW_" + outputString + "_BREACH";
+  printOutput(outputString);
+  return false;
 }
 
 bool isBatteryParameterinRange(float variable, float limit, std::string outputString)
@@ -63,10 +60,8 @@ bool isBatteryParameterinRange(float variable, float limit, std::string outputSt
     printOutput(outputString);
     return false;
   }
-  else
-  {
-    return true;
-  }
+
+  return true;
 }
 bool isBatteryParameterinRangeWithWarning(float parameter, float parameterRange, float warningPercent, std::string outputString)
 {
@@ -74,21 +69,18 @@ bool isBatteryParameterinRangeWithWarning(float parameter, float parameterRange,
   {
     // printOutput(outputString);
     // "Battery_PARAM"_RANGE_BREACH,
-    outputString =  outputString + "_RANGE_BREACH";
+    outputString = outputString + "_RANGE_BREACH";
     printOutput(outputString);
     return false;
   }
   else if (parameter > (parameterRange * warningPercent))
   {
     // "Battery_PARAM"_RANGE_WARNING
-    outputString =  outputString + "_RANGE_WARNING";
+    outputString = outputString + "_RANGE_WARNING";
     printOutput(outputString);
     return true;
   }
-  else
-  {
-    outputString =  outputString + "_IN_RANGE";
-    printOutput(outputString);
-    return true;
-  }
+  outputString = outputString + "_IN_RANGE";
+  printOutput(outputString);
+  return true;
 }
