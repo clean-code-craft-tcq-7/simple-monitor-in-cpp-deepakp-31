@@ -1,6 +1,6 @@
 #include "BMS_checker.hpp"
 #include "BMS_parameters.hpp"
-#include "BMS_checkfn.hpp"
+#include "BMS_parameterCheck.hpp"
 
 float BMS::BMS::convertBatteryParam(float paramatervalue, float scaleFactor, float shiftFactor)
 {
