@@ -1,4 +1,4 @@
-#include "BMS_checkfn.hpp"
+#include "BMS_parameterCheck.hpp"
 
 void printOutput(std::string outputString)
 {
